@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "b286f1f1-da01-48be-9b57-55156b0c4924",
+		"name": "viikko 5 testti",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47952618",
+		"_collection_link": "https://vladimir-getalo-s-team.postman.co/workspace/Vladimir-Getalo's-Workspace~737c57b2-8f85-48f9-8a39-42a260bd875b/collection/47952618-b286f1f1-da01-48be-9b57-55156b0c4924?action=share&source=collection_link&creator=47952618"
+	},
+	"item": [
+		{
+			"name": "1. curl-komento, joka listaa kaikki todot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. curl-komento, joka suodattaa todot (vain done=true)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/todos?done=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todos"
+					],
+					"query": [
+						{
+							"key": "done",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. curl-komento, joka luo uuden todon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"task\":\"Opiskele REST-periaatteet\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Anna curl-komento, poista todo (korvaa :id oikealla ID:llä, esim. ID=2)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/todos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Virhetapaukset) 6.1. curl-komento, joka luo todo ilman task-kenttää",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Virhetapaukset) 6.2. curl-komento, joka päivittää olemattoman ID:n 999",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/todos/999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todos",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Virhetapaukset) 6.3. curl-komento, joka poistaa olemattoman ID:n 999",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/todos/999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todos",
+						"999"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,13 @@
+Testausohjeet Windows CMD:llä
+curl -i -X GET http://localhost:3001/todos
+curl -i -X GET http://localhost:3001/todos?done=true
+curl -i -X POST -H "Content-Type: application/json" -d "{\"task\":\"Opiskele REST-periaatteet\"}" http://localhost:3001/todos
+curl -i -X PUT -H "Content-Type: application/json" -d "{\"task\":\"Osta kahvia\",\"done\":true}" http://localhost:3001/todos/1
+curl -i -X DELETE http://localhost:3001/todos/2
+
+Virhetapaukset
+curl -i -X POST -H "Content-Type: application/json" -d "{}" http://localhost:3001/todos
+curl -i -X PUT -H "Content-Type: application/json" -d "{\"task\":\"Osta kahvia\",\"done\":true}" http://localhost:3001/todos/999
+curl -i -X DELETE http://localhost:3001/todos/999
+
+
