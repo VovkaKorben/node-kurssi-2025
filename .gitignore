@@ -1,7 +1,8 @@
 # Tähän tiedotoon määritellään ne asiat, joita ei siirretä githubiin
 *.doc
 *.docx
-*.txt
 *.png
 *.jpg
 *.jpeg
+node_modules/
+.gitignore

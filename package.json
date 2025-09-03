@@ -4,6 +4,8 @@
   "description": "Tämä proektti pitää sisällään ** 8 kappaletta erilaisia Node.js/Express API:a**, joissa harjotellaan REST-perusteita. Jokainen API on toteutettu erilliseen viikko-kansioon. Jokaisen kansion alla on tiedostot, ja niitä voidaan ajaa itsenäisesti.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
