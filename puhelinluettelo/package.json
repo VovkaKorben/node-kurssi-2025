@@ -1,11 +1,11 @@
 {
   "name": "puhelinluettelo",
   "version": "1.0.0",
-  "description": "Node.js puhelinluettelo API",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon mongo.js"
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",

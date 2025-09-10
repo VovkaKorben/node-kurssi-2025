@@ -1,0 +1,1 @@
+module.exports = uri = "mongodb+srv://riveria:pwd@skynet.plmo5hs.mongodb.net/?retryWrites=true&w=majority&appName=Skynet"
