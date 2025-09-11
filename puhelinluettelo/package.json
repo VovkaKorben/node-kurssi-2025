@@ -1,18 +1,22 @@
 {
   "name": "puhelinluettelo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Node.js puhelinluettelo API",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "devsr": "nodemon seed.js --reset",
+    "seed": "node seed.js",
+    "seed:reset": "node seed.js --reset",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Volodymyr Getalo",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^17.2.2",
-    "mongodb": "^6.19.0",
+    "express": "^5.1.0",
     "mongoose": "^8.18.1",
     "morgan": "^1.10.1"
   },

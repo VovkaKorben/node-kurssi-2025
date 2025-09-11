@@ -1,0 +1,35 @@
+### Hae kaikki henkilöt
+GET http://localhost:3001/api/henkilot HTTP/1.1
+
+### Info: lukumäärä + kellonaika
+GET http://localhost:3001/info HTTP/1.1
+
+### Hae yksittäinen henkilö MongoDB:llä
+GET http://localhost:3001/api/henkilot/68c26a1ab851f41662badd77 HTTP/1.1  
+
+### Hae yksittäinen henkilö MongoDB:llä - Virheellinen ID
+GET http://localhost:3001/api/henkilot/aaaaaaaaaaaaaaaaaaaaaaaa HTTP/1.1  
+
+### Poista henkilö id:llä
+DELETE http://localhost:3001/api/henkilot/68c26a1ab851f41662badd77 HTTP/1.1  
+
+### Poista henkilö id:llä - Virheellinen ID
+DELETE http://localhost:3001/api/henkilot/aaaaaaaaaaaaaaaaaaaaaaaa HTTP/1.1  
+
+### Lisää uusi henkilö
+POST http://localhost:3001/api/henkilot/ HTTP/1.1  
+content-type: application/json
+
+{
+    "name": "Korben Dallas",
+    "number": "111-2223344"
+}
+
+### Päivitä henkilön tiedot (esim. numero)
+PUT http://localhost:3001/api/henkilot/68c26aef8c609ba6d2ad93ca HTTP/1.1  
+content-type: application/json
+
+{
+    "name": "Leeloo Dallas",
+    "number": "555-6667788"
+}

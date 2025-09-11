@@ -1,0 +1,26 @@
+{{#each list}}
+<div class="ilmoitukset">
+    <div class="container-adverts">
+        <div class="ilmoitus" key={{ilmoitus_id}}>
+            <div>
+                {{!-- <h1>{{ilmoitus_laji}}: {{ilmoitus_nimi}} </h1> --}}
+                <h1>{{advertType ilmoitus_laji}}: {{ilmoitus_nimi}} </h1>
+                <h3>{{ilmoitus_kuvaus}}</h3>
+            </div>
+            <div>
+
+            </div>
+            <div class="container-advertBottom">
+                <div class="itemB">
+                    <h5>Ilmoittaja: {{ilmoittaja_id}}</h5>
+                </div>
+
+                <div class="itemA">
+                    {{!-- <h5>Ilmoitus jätetty: {{ilmoitus_paivays}}</h5> --}}
+                    <h5>Ilmoitus jätetty: {{formatDate ilmoitus_paivays}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
