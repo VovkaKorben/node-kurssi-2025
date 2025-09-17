@@ -38,6 +38,24 @@ const listAdverts = async (req, res, next) => {
     }
 };
 
+const listUserAdverts = async (req, res, next) => {
+    try {
+        const decoded = await promisify(jwt.verify)(
+            req.cookies.jwt,
+            process.env.JWT_SECRET
+        );
+        db.query(
+            "SELECT * FROM ilmoitukset WHERE ilmoittaja_id = ?",
+            [decoded.id],
+            async (error, results) => {
+                req.list = results;
+                next();
+            }
+        );
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 export default newAdvert;
-export { listAdverts };
+export { listAdverts, listUserAdverts };

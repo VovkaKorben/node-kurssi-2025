@@ -1,4 +1,13 @@
 let hbsHelpers = {
+    getUser: (users, kayttaja) => {
+        let user = "";
+        users.forEach((u) => {
+            if (u.kayttaja_id === kayttaja) {
+                user = u.kayttaja_tunnus;
+            }
+        });
+        return user;
+    },
     advertType: (ilmoitus_laji) => {
         let ilmoitusLaji = "";
         if (ilmoitus_laji === 2) {
@@ -16,6 +25,11 @@ let hbsHelpers = {
         return ilmoitusLajiBoolean;
     }
 }
+reverseList: (list) => {
+    let reversedList = list.reverse();
+    return reversedList;
+}
+
 formatDate: (ilmoitus_paivays) => {
     let dateFromDb = ilmoitus_paivays;
     let year = dateFromDb.getFullYear();

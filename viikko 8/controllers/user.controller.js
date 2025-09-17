@@ -57,7 +57,16 @@ const registerUser = (req, res) => {
         }
     );
 }
-
-
+const listUsers = async (req, res, next) => {
+    try {
+        db.query("SELECT * FROM kayttajat", async (error, results) => {
+            req.users = results;
+            next();
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 export default registerUser;
+export { listUsers };
