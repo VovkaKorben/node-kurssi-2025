@@ -20,6 +20,5 @@ Postman is for research and documentation, and Supertest is for automatic regres
 
 # Running tests
 * ESLint: `npm run lint`
-* Vitest: `npm run vitest`
-* Supertest: `npm run supertest`
+* Vitest/Supertest: `npm test`
 

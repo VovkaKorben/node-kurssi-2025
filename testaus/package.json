@@ -4,12 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "vitest": "vitest",
-    "supertest": "vitest"
-    
+    "test": "vitest"
   },
   "author": "",
   "license": "ISC",
