@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 
-const unusedVar = 10;
-
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
 });
