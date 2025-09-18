@@ -15,6 +15,8 @@ Tests includes 3 variants of arguments and expected results.
 In this test suite we testing simple http-server.
 Server serve just one GET-route **/api/health**.
 Test check 2 suites: is specified route served ok and invalid (non-existsing) route.
+## Supertest vs Postman
+Postman is for research and documentation, and Supertest is for automatic regression during development
 
 # Running tests
 * ESLint: `npm run lint`
