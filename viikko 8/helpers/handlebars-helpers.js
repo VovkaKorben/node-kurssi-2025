@@ -1,6 +1,8 @@
 let hbsHelpers = {
     getUser: (users, kayttaja) => {
         let user = "";
+        console.log(`users ${users}`);
+        console.log(`kayttaja ${kayttaja}`);
         users.forEach((u) => {
             if (u.kayttaja_id === kayttaja) {
                 user = u.kayttaja_tunnus;
@@ -11,9 +13,9 @@ let hbsHelpers = {
     advertType: (ilmoitus_laji) => {
         let ilmoitusLaji = "";
         if (ilmoitus_laji === 2) {
-            ilmoitusLaji = "Ostetaan";
+            ilmoitusLaji = "Buy";
         } else {
-            ilmoitusLaji = "Myydään";
+            ilmoitusLaji = "Sell";
         }
         return ilmoitusLaji;
     },
@@ -23,20 +25,21 @@ let hbsHelpers = {
             ilmoitusLajiBoolean = true;
         }
         return ilmoitusLajiBoolean;
+    }, reverseList: (list) => {
+        let reversedList = list.reverse();
+        return reversedList;
+    },
+    formatDate: (ilmoitus_paivays) => {
+        let dateFromDb = ilmoitus_paivays;
+        let year = dateFromDb.getFullYear();
+        let month = ('0' + (dateFromDb.getMonth() + 1)).slice(-2);
+        let date = ('0' + dateFromDb.getDate()).slice(-2);
+        return date + '.' + month + '.' + year;
     }
 }
-reverseList: (list) => {
-    let reversedList = list.reverse();
-    return reversedList;
-}
 
-formatDate: (ilmoitus_paivays) => {
-    let dateFromDb = ilmoitus_paivays;
-    let year = dateFromDb.getFullYear();
-    let month = ('0' + (dateFromDb.getMonth() + 1)).slice(-2);
-    let date = ('0' + dateFromDb.getDate()).slice(-2);
-    return date + '.' + month + '.' + year;
-}
+
+
 
 
 export default hbsHelpers;

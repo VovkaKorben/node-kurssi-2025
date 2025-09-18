@@ -15,7 +15,7 @@ const newAdvert = async (req, res, next) => {
             ilmoitus_nimi,
             ilmoitus_kuvaus,
             ilmoitus_paivays: new Date(Date.now()),
-            ilmoittaja_id: decoded.id,
+            ilmoittaja_id : decoded.id,
         },
         (error, results) => {
             if (error) {
@@ -56,6 +56,43 @@ const listUserAdverts = async (req, res, next) => {
         console.log(error);
     }
 };
+const getAdvert = async (req, res, next) => {
+    try {
+        db.query(
+            "SELECT * FROM ilmoitukset WHERE ilmoitus_id = ?",
+            [req.params.id],
+            async (error, results) => {
+                req.advert = results[0];
+                next();
+            }
+        );
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const updateAdvert = async (req, res, next) => {
+    const { ilmoitus_kuvaus, ilmoitus_nimi } = req.body;
+    try {
+        db.query(
+            "UPDATE ilmoitukset SET ilmoitus_kuvaus = ?, ilmoitus_nimi = ? WHERE ilmoitus_id = ?",
+            [ilmoitus_kuvaus, ilmoitus_nimi, req.params.id],
+            async (error, results) => {
+                db.query(
+                    "SELECT * FROM ilmoitukset WHERE ilmoitus_id = ?",
+                    [req.params.id],
+                    async (error, results) => {
+                        req.advert = results[0];
+                        next();
+                    }
+                );
+            }
+        );
+    } catch (error) {
+        console.log(error);
+        next();
+    }
+};
 
 export default newAdvert;
-export { listAdverts, listUserAdverts };
+export { listAdverts, listUserAdverts, getAdvert, updateAdvert };

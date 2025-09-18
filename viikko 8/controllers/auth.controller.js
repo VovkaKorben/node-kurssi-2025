@@ -37,7 +37,7 @@ const login = async (req, res) => {
 
         if (!kayttaja_sahkoposti || !kayttaja_salasana) {
             return res.status(400).render('login', {
-                message: "Anna käyttäjätunnus ja/tai salasana!",
+                message: "Enter login and password!",
             });
         }
         db.query(

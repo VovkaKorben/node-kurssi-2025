@@ -1,7 +1,7 @@
 import express from 'express';
 import { isLoggedIn } from '../controllers/auth.controller.js';
 import { listUsers } from '../controllers/user.controller.js';
-import newAdvert, { listAdverts, listUserAdverts } from '../controllers/advert.controller.js';
+import newAdvert, { listAdverts, listUserAdverts, getAdvert, updateAdvert } from '../controllers/advert.controller.js';
 
 const routes = express.Router();
 
@@ -43,5 +43,40 @@ routes.get('/', [isLoggedIn, listAdverts, listUsers], (req, res) => {
 	});
 });
 
+routes.get('/profile', [isLoggedIn, listUserAdverts], (req, res) => {
+	if (req.list) {
+		res.render('profile', {
+			list: req.list,
+			user: req.user
+		});
+	} else {
+		res.redirect('/login');
+	}
+}
+);
+routes.get('/editAdvert/:id', [isLoggedIn, getAdvert], (req, res) => {
+	const user = req.user;
+	const advert = req.advert
+	if (advert) {
+		res.render('edit-advert', {
+			user,
+			advert
+		});
+	} else {
+		res.redirect('/login');
+	}
+});
+routes.post('/editAdvert/:id', [isLoggedIn, updateAdvert], (req, res) => {
+	const user = req.user;
+	const advert = req.advert
+	if (advert) {
+		res.render('edit-advert', {
+			user,
+			advert
+		});
+	} else {
+		res.redirect('/login');
+	}
+});
 
 export default routes;

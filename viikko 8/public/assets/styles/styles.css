@@ -112,9 +112,47 @@ body {
     padding-right: 20px;
 }
 
+button {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #5f5e5c;
+    margin: 0.5em;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: OpenDyslexic;
+    font-weight: 300;
+    background: #bba688;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+button:hover {
+    color: #000;
+    background-color: #EAE7DC;
+}
+
+.profile {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    background-color: #D8C3A5;
+    color: #5f5e5c;
+    margin: 30px auto;
+    padding: 10px;
+    max-width: 40%;
+    border-radius: 5px;
+    text-align: center;
+}
+
 
 /* debug purpose  */
 
+a:hover::before {
+    content: "[";
+}
+
+a:hover::after {
+    content: "]";
+}
 
 .dbg {
     border: 5px dotted blue;
